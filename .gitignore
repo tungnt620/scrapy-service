@@ -1,0 +1,7 @@
+db.*
+dbs/
+logs/
+*.pyc
+virtualenv
+build
+project.egg-info

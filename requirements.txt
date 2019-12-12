@@ -1,0 +1,3 @@
+Scrapy
+scrapyd
+scrapyd-client
