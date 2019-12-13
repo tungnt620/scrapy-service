@@ -1,3 +1,19 @@
+# Note
+* This is internal service, don't public
+* Our's system run in background with upstart
+* upstart config file at /etc/init/scrapy.conf
+```
+init-checkconf /path/to/your.conf to check if your configuration is valid or not.
+initctl start <service> to start the service
+initctl stop <service> to stop the service
+initctl restart <service> to restart the service
+initctl status <service> to see the status your service, whether its stopped, running etc.
+initctl reload-configuration is used after you created a new configuration to reload the configurations
+initctl list to see the list of all registered services
+initctl list | grep <service> to see if your service is registered or not
+```
+* log file at ```/var/log/upstart/service_name.log```
+
 # Setup virtualenv
 * pip3 install virtualenv
 * virtualenv -p python3 virtualenv
@@ -23,6 +39,22 @@ At this point you will be able to send job request to Scrapyd. This project is s
 ````
 curl http://localhost:5000/schedule.json -d project=default -d spider=toscrape-css
 ````
+
+# Scrapyd-deploy
+* list all target: ```scrapyd-deploy -l```
+* target may use for scalable a system
+* Config a target:
+```[deploy:example]
+url = http://scrapyd.example.com/api/scrapyd
+username = scrapy
+password = secret
+```
+* deploy to default target with default project
+```scrapy-deploy```
+* deploy to all target
+```scrapyd-deploy -a -p <project>```
+* Schedule a spider
+```curl http://confession.vn:5000/schedule.json -d project=default -d spider=tangthuvien```
 
 
 # TODO
