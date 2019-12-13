@@ -5,3 +5,4 @@ logs/
 virtualenv
 build
 project.egg-info
+.idea
