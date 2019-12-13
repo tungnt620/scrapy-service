@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for story1 project
+# Scrapy settings for story project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'story1'
+BOT_NAME = 'story'
 
-SPIDER_MODULES = ['story1.spiders']
-NEWSPIDER_MODULE = 'story1.spiders'
+SPIDER_MODULES = ['story.spiders']
+NEWSPIDER_MODULE = 'story.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'story1 (+http://www.yourdomain.com)'
+#USER_AGENT = 'story (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -47,13 +47,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'story1.middlewares.StorySpiderMiddleware': 543,
+#    'story.middlewares.StorySpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'story1.middlewares.StoryDownloaderMiddleware': 543,
+#    'story.middlewares.StoryDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -65,7 +65,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'story1.pipelines.StoryPipeline': 300,
+#    'story.pipelines.StoryPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
