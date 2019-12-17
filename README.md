@@ -25,6 +25,16 @@ initctl list | grep <service> to see if your service is registered or not
  * pip3 install -r requirements.txt
  
 
+# Run
+*  export GOOGLE_APPLICATION_CREDENTIALS="/Users/nguyentung/Downloads/google-cloud-key.json"
+* ```scrapy crawl tangthuvien -a story_url=https://truyen.tangthuvien.vn/doc-truyen/quy-bi-chi-chu -a chapter_number=1```
+
+# Scrapy shell
+* scrapy shell https://sadsa.com
+
+# Website banned
+* Use like human user agent
+
 ## Setup
 In order to run Scrapyd
 ````
@@ -54,8 +64,9 @@ password = secret
 * deploy to all target
 ```scrapyd-deploy -a -p <project>```
 * Schedule a spider
-```curl http://confession.vn:5000/schedule.json -d project=default -d spider=tangthuvien```
-
+```curl http://confession.vn:5000/schedule.json -d project=default -d spider=tangthuvien -a story_url=https://tangthuvien.vn/lablalslaldlsalds -a chapter=2```
+* upload google-cloud-key.json file to server and set env
+``` export GOOGLE_APPLICATION_CREDENTIALS="/path/to/google-cloud-key.json"```
 
 # TODO
 * Add basic authentication to config files
