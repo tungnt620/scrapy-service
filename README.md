@@ -28,6 +28,7 @@ initctl list | grep <service> to see if your service is registered or not
 # Run
 *  ```export GOOGLE_APPLICATION_CREDENTIALS="/Users/nguyentung/Downloads/google-cloud-key.json"```
 * ```scrapy crawl ttv_book -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a is_override=1 -a old_book_slug=xyz```
+* ```scrapy crawl ttv_chapter -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a book_slug=dai-y-lang-thien-sadsa -a chapter_num=2 -a is_override=1 -a old_chapter_slug=xyz```
 
 # Scrapy shell
 * scrapy shell https://sadsa.com
@@ -71,7 +72,7 @@ scrapyd-deploy -a -p <project>
 
 * Schedule a spider
 ```
-curl http://confession.vn:5000/schedule.json -d project=default -d spider=tangthuvien -a book_url=https://tangthuvien.vn/lablalslaldlsalds -a chapter=2
+curl http://confession.vn:5000/schedule.json -d project=default -d spider=ttv_book -a book_url=https://tangthuvien.vn/lablalslaldlsalds
 ```
 
 * upload google-cloud-key.json file to server and set env

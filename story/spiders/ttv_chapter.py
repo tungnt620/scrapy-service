@@ -11,15 +11,6 @@ class TTVChapterSpider(scrapy.Spider):
             'story.pipelines.TTVChapterPipeline': 300,
         }
     }
-    story_data = {
-        'name': '',
-        'desc': '',
-        'chapter_data': {
-            'no': 1,
-            'name': '',
-            'content': '',
-        }
-    }
     is_already_fetch_chapter_one = False
     is_already_fetch_list_chapter = False
     is_already_get_chapter_url = False
