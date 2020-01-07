@@ -23,11 +23,11 @@ initctl list | grep <service> to see if your service is registered or not
         * sudo apt-get install python-dev python-pip libxml2-dev libxslt1-dev zlib1g-dev libffi-dev libssl-dev
         * sudo apt-get install python3 python3-dev
  * pip3 install -r requirements.txt
- 
+
 
 # Run
-*  export GOOGLE_APPLICATION_CREDENTIALS="/Users/nguyentung/Downloads/google-cloud-key.json"
-* ```scrapy crawl tangthuvien -a story_url=https://truyen.tangthuvien.vn/doc-truyen/quy-bi-chi-chu -a chapter_number=1```
+*  ```export GOOGLE_APPLICATION_CREDENTIALS="/Users/nguyentung/Downloads/google-cloud-key.json"```
+* ```scrapy crawl ttv_book -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a is_override=1 -a old_book_slug=xyz```
 
 # Scrapy shell
 * scrapy shell https://sadsa.com
@@ -71,7 +71,7 @@ scrapyd-deploy -a -p <project>
 
 * Schedule a spider
 ```
-curl http://confession.vn:5000/schedule.json -d project=default -d spider=tangthuvien -a story_url=https://tangthuvien.vn/lablalslaldlsalds -a chapter=2
+curl http://confession.vn:5000/schedule.json -d project=default -d spider=tangthuvien -a book_url=https://tangthuvien.vn/lablalslaldlsalds -a chapter=2
 ```
 
 * upload google-cloud-key.json file to server and set env
@@ -81,3 +81,4 @@ export GOOGLE_APPLICATION_CREDENTIALS="/path/to/google-cloud-key.json"
 
 # TODO
 * Add basic authentication to config files
+* Build logic notify when data crawl maybe incorrect

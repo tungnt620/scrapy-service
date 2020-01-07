@@ -11,7 +11,7 @@
 
 GOOGLE_APPLICATION_CREDENTIALS = "/Users/nguyentung/Downloads/google-cloud-key.json"
 
-BOT_NAME = 'tangthuvien'
+BOT_NAME = 'book-crawl'
 
 SPIDER_MODULES = ['story.spiders']
 NEWSPIDER_MODULE = 'story.spiders'
@@ -70,7 +70,7 @@ LOG_LEVEL = 'INFO'
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 # ITEM_PIPELINES = {
-#    'story.pipelines.StoryPipeline': 300,
+#    'story.pipelines.BookPipeline': 300,
 # }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

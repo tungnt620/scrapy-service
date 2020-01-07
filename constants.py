@@ -1,3 +1,4 @@
 # -*- coding: utf-8 -*-
 
-STORY_RAW_DATA_BUCKET_NAME = 'story-raw-data'
+BOOK_RAW_DATA_BUCKET_NAME = 'book-raw-data'
+CHAPTER_RAW_DATA_BUCKET_NAME = 'chapter-raw-data'
