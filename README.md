@@ -73,7 +73,7 @@ scrapyd-deploy -a -p <project>
 
 * Schedule a spider
 ```
-curl http://confession.vn:5000/schedule.json -d project=default -d spider=ttv_book -a book_url=https://tangthuvien.vn/lablalslaldlsalds
+curl http://confession.vn:5000/schedule.json -d project=default -d spider=ttv_book -a book_url=https://tangthuvien.vn/lablalslaldlsalds -d book_url=https://google.com
 ```
 
 * upload google-cloud-key.json file to server and set env
