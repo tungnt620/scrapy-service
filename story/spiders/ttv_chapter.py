@@ -15,12 +15,13 @@ class TTVChapterSpider(scrapy.Spider):
     is_already_fetch_list_chapter = False
     is_already_get_chapter_url = False
 
-    def __init__(self, book_url='', book_slug='', chapter_num=1, is_override=0, old_chapter_slug='', **kwargs):
+    def __init__(self, redis_stream_name='', book_url='', book_slug='', chapter_num=1, is_override=0, old_chapter_slug='', **kwargs):
         self.start_urls = [book_url]
         self.chapter_num = chapter_num
         self.book_slug = book_slug
         self.old_chapter_slug = old_chapter_slug
         self.is_override = is_override
+        self.redis_stream_name = redis_stream_name
 
         super().__init__(**kwargs)
 
@@ -39,6 +40,7 @@ class TTVChapterSpider(scrapy.Spider):
             'text': content,
             'old_chapter_slug': self.old_chapter_slug,
             'is_override': self.is_override,
+            'redis_stream_name': self.redis_stream_name,
         }
 
     def parse(self, response):

@@ -26,9 +26,8 @@ initctl list | grep <service> to see if your service is registered or not
 
 
 # Run
-*  ```export IS_DEV=1```
-* ```scrapy crawl ttv_book -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a is_override=1 -a old_book_slug=xyz```
-* ```scrapy crawl ttv_chapter -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a book_slug=dai-y-lang-thien-sadsa -a chapter_num=2 -a is_override=1 -a old_chapter_slug=xyz```
+* ```scrapy crawl ttv_book -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a is_override=1 -a old_book_slug=xyz```
+* ```scrapy crawl ttv_chapter -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a book_slug=dai-y-lang-thien-sadsa -a chapter_num=2 -a is_override=1 -a old_chapter_slug=xyz```
 
 # Scrapy shell
 * scrapy shell https://sadsa.com
@@ -73,8 +72,8 @@ scrapyd-deploy -a -p <project>
 
 * Schedule a spider
 ```
-curl http://confession.vn:5000/schedule.json -d project=book -d spider=ttv_book -d book_url=https://truyen.tangthuvien.vn/doc-truyen/de-ba -d is_override=0 -d old_book_slug=xyz
-curl http://confession.vn:5000/schedule.json -d project=book -d spider=ttv_chapter -d book_url=https://truyen.tangthuvien.vn/doc-truyen/de-ba -d is_override=0 -d old_book_slug=xyz
+curl http://confession.vn:5000/schedule.json -d project=book -d spider=ttv_book -d book_url=https://truyen.tangthuvien.vn/doc-truyen/de-ba -d is_override=0 -d old_book_slug=xyz -d redis_stream_name=abc 
+curl http://confession.vn:5000/schedule.json -d project=book -d spider=ttv_chapter -d book_url=https://truyen.tangthuvien.vn/doc-truyen/de-ba -d is_override=0 -d old_book_slug=xyz -d redis_stream_name=abc
 ```
 
 * upload google-cloud-key.json file to server and set env
@@ -90,5 +89,6 @@ reload scrapyd
 ```
 
 # TODO
+* Add is_full field to ttv_book
 * Add basic authentication to config files
 * Build logic notify when data crawl maybe incorrect

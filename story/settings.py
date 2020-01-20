@@ -9,8 +9,6 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-GOOGLE_APPLICATION_CREDENTIALS = "/Users/nguyentung/Downloads/google-cloud-key.json"
-
 BOT_NAME = 'book-crawl'
 
 SPIDER_MODULES = ['story.spiders']
@@ -29,7 +27,7 @@ CONCURRENT_REQUESTS = 5
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# DOWNLOAD_DELAY = 0.5
+DOWNLOAD_DELAY = 0.25
 # RANDOMIZE_DOWNLOAD_DELAY = True
 # The download delay setting will honor only one of:
 #CONCURRENT_REQUESTS_PER_DOMAIN = 16
@@ -93,3 +91,4 @@ LOG_LEVEL = 'DEBUG'
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+

@@ -6,3 +6,5 @@ virtualenv
 build
 project.egg-info
 .idea
+target.py
+target.pyc

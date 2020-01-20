@@ -2,3 +2,4 @@ Scrapy
 scrapyd
 scrapyd-client
 google-cloud-storage
+redis
