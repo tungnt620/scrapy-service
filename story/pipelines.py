@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import redis
 from story.target import REDIS_HOST, REDIS_PORT, REDIS_PASSWORD
 
@@ -12,17 +11,22 @@ class BasePipeline(object):
         super().__init__()
 
     def process_item(self, item, spider):
-        redis_stream_name = item['redis_stream_name']
-        del item['redis_stream_name']
+        if item:
+            redis_stream_name = item['redis_stream_name']
+            del item['redis_stream_name']
 
-        self.redisClient.xadd(
-            redis_stream_name,
-            item,
-            '*',
-            1000
-        )
+            self.redisClient.xadd(
+                redis_stream_name,
+                item,
+            )
 
         return item
+
+
+class NewTTVBookPipeline(BasePipeline):
+
+    def __init__(self):
+        super().__init__()
 
 
 class TTVBookPipeline(BasePipeline):
