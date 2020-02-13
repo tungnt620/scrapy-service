@@ -13,10 +13,9 @@ class TTVBookSpider(scrapy.Spider):
         }
     }
 
-    def __init__(self, redis_stream_name='', book_url='', is_override=0, old_book_slug='', **kwargs):
+    def __init__(self, redis_stream_name='', book_url='', id='', **kwargs):
         self.start_urls = [book_url]
-        self.is_override = is_override
-        self.old_book_slug = old_book_slug
+        self.id = id
         self.redis_stream_name = redis_stream_name
         super().__init__(**kwargs)
 
@@ -27,13 +26,14 @@ class TTVBookSpider(scrapy.Spider):
             cats.remove(author)
 
         story_data = {
-            'name': response.css('.book-information .book-info h1::text').get(default='').strip(),
-            'desc': response.css(".book-info-detail .book-intro > p").get(default='').strip(),
-            'img': response.css('.book-information .book-img img').attrib['src'].strip(),
-            'author': author,
-            'cats': json.dumps(cats),
-            'old_book_slug': self.old_book_slug,
-            'is_override': self.is_override,
+            'book': json.dumps({
+                'name': response.css('.book-information .book-info h1::text').get(default='').strip(),
+                'desc': response.css(".book-info-detail .book-intro > p").get(default='').strip(),
+                'img': response.css('.book-information .book-img img').attrib['src'].strip(),
+                'author': author,
+                'cats': json.dumps(cats),
+                'id': self.id,
+            }),
             'redis_stream_name': self.redis_stream_name
         }
 

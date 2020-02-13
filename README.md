@@ -1,7 +1,8 @@
 # Note
 * This is internal service, don't public
 * Our's system run in background with upstart
-* upstart config file at /etc/init/scrapy.conf
+* upstart config file at /etc/init/scrapyd.conf
+
 ```
 init-checkconf /path/to/your.conf to check if your configuration is valid or not.
 initctl start <service> to start the service
@@ -26,8 +27,8 @@ initctl list | grep <service> to see if your service is registered or not
 
 
 # Run
-* ```scrapy crawl ttv_book -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a is_override=1 -a old_book_slug=xyz```
-* ```scrapy crawl ttv_chapter -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a book_slug=dai-y-lang-thien-sadsa -a chapter_num=2 -a is_override=1 -a old_chapter_slug=xyz```
+* ```scrapy crawl ttv_book -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a id=1```
+* ```scrapy crawl ttv_chapter -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a book_id=2 -a chapter_num=2 -a old_chapter_id=1```
 * ```scrapy crawl new_ttv_book -a redis_stream_name=abc2```
 
 # Scrapy shell
@@ -73,8 +74,8 @@ scrapyd-deploy -a -p <project>
 
 * Schedule a spider
 ```
-curl http://confession.vn:5000/schedule.json -d project=book -d spider=ttv_book -d book_url=https://truyen.tangthuvien.vn/doc-truyen/de-ba -d is_override=0 -d old_book_slug=xyz -d redis_stream_name=abc 
-curl http://confession.vn:5000/schedule.json -d project=book -d spider=ttv_chapter -d book_url=https://truyen.tangthuvien.vn/doc-truyen/de-ba -d is_override=0 -d old_book_slug=xyz -d redis_stream_name=abc
+curl http://confession.vn:5000/schedule.json -d project=book -d spider=ttv_book -d book_url=https://truyen.tangthuvien.vn/doc-truyen/de-ba -d redis_stream_name=abc 
+curl http://confession.vn:5000/schedule.json -d project=book -d spider=ttv_chapter -d book_url=https://truyen.tangthuvien.vn/doc-truyen/de-ba -d book_id=1 -d redis_stream_name=abc
 ```
 
 * upload google-cloud-key.json file to server and set env
