@@ -28,7 +28,7 @@ initctl list | grep <service> to see if your service is registered or not
 
 # Run
 * ```scrapy crawl ttv_book -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a id=1```
-* ```scrapy crawl ttv_chapter -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a book_id=2 -a chapter_num=2 -a old_chapter_id=1```
+* ```scrapy crawl ttv_chapter -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a book_id=2 -a chapter_num=2```
 * ```scrapy crawl new_ttv_book -a redis_stream_name=abc2```
 
 # Scrapy shell
