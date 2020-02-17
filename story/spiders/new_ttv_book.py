@@ -12,7 +12,7 @@ class TTVBookSpider(scrapy.Spider):
             'story.pipelines.NewTTVBookPipeline': 300,
         }
     }
-    page = 463
+    page = 0
 
     def __init__(self, redis_stream_name='', **kwargs):
         self.redis_stream_name = redis_stream_name
