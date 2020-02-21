@@ -78,11 +78,6 @@ curl http://confession.vn:5000/schedule.json -d project=book -d spider=ttv_book 
 curl http://confession.vn:5000/schedule.json -d project=book -d spider=ttv_chapter -d book_url=https://truyen.tangthuvien.vn/doc-truyen/de-ba -d book_id=1 -d redis_stream_name=abc
 ```
 
-* upload google-cloud-key.json file to server and set env
-``` 
-export GOOGLE_APPLICATION_CREDENTIALS="/path/to/google-cloud-key.json"
-```
-
 ## Deploy manual
 ```
 git pull
@@ -91,6 +86,5 @@ reload scrapyd
 ```
 
 # TODO
-* Add is_full field to ttv_book
 * Add basic authentication to config files
 * Build logic notify when data crawl maybe incorrect
