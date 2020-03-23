@@ -1,21 +1,15 @@
 # -*- coding: utf-8 -*-
-import redis
-from story.target import REDIS_HOST, REDIS_PORT, REDIS_PASSWORD
+from story.redis_client import redisClient
 
 
 class BasePipeline(object):
-
-    def __init__(self):
-        redis_client = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, password=REDIS_PASSWORD)
-        self.redisClient = redis_client
-        super().__init__()
 
     def process_item(self, item, spider):
         if item:
             redis_stream_name = item['redis_stream_name']
             del item['redis_stream_name']
 
-            self.redisClient.xadd(
+            redisClient.xadd(
                 redis_stream_name,
                 item,
             )
@@ -36,6 +30,24 @@ class TTVBookPipeline(BasePipeline):
 
 
 class TTVChapterPipeline(BasePipeline):
+
+    def __init__(self):
+        super().__init__()
+
+
+class NewWuxiaWorldBookPipeline(BasePipeline):
+
+    def __init__(self):
+        super().__init__()
+
+        
+class WuxiaWorldBookPipeline(BasePipeline):
+
+    def __init__(self):
+        super().__init__()
+
+
+class WuxiaWorldChapterPipeline(BasePipeline):
 
     def __init__(self):
         super().__init__()

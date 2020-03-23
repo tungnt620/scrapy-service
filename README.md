@@ -2,6 +2,7 @@
 * This is internal service, don't public
 * Our's system run in background with upstart
 * upstart config file at /etc/init/scrapyd.conf
+* save authen cookie in redis with key `wuxiaworld_auth`
 
 ```
 init-checkconf /path/to/your.conf to check if your configuration is valid or not.
@@ -30,6 +31,9 @@ initctl list | grep <service> to see if your service is registered or not
 * ```scrapy crawl ttv_book -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a id=1```
 * ```scrapy crawl ttv_chapter -a redis_stream_name=abc -a book_url=https://truyen.tangthuvien.vn/doc-truyen/dai-y-lang-nhien -a book_id=2 -a chapter_num=2```
 * ```scrapy crawl new_ttv_book -a redis_stream_name=abc2```
+* ```scrapy crawl new_wuxiaworld_book -a redis_stream_name=abc```
+* ```scrapy crawl wuxiaworld_book -a redis_stream_name=abc -a book_url=https://www.wuxiaworld.com/novel/demoness-art-of-vengeance -a id=1```
+* ```scrapy crawl wuxiaworld_chapter -a redis_stream_name=abc -a chapter_url=https://www.wuxiaworld.com/novel/fortunately-i-met-you/fimy-chapter-14 -a book_id=1```
 
 # Scrapy shell
 * scrapy shell https://sadsa.com
@@ -53,7 +57,6 @@ curl http://localhost:5000/schedule.json -d project=default -d spider=toscrape-c
 ````
 
 # Scrapyd-deploy
-* Must upload file: ```/data/release/scrapy-service/google-cloud-key.json```
 * list all target: ```scrapyd-deploy -l```
 * target may use for scalable a system
 * Config a target:
