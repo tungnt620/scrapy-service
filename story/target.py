@@ -1,5 +1,3 @@
-
-
 REDIS_PASSWORD = None
 REDIS_HOST = "localhost"
 REDIS_PORT = 6379

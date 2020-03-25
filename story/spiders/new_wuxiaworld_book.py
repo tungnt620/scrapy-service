@@ -35,7 +35,7 @@ class TTVBookSpider(scrapy.Spider):
     def get_books(self, response):
         books = []
 
-        resp_json = json.loads(response.body)
+        resp_json = json.loads(response.body.decode('utf-8'))
         raw_books_data = resp_json['items']
 
         for book in raw_books_data:
